@@ -11,7 +11,7 @@ This repo currently contains the starter files.
 
 Clone repo and create a virtual environment
 ```
-$ git clone https://github.com/python-engineer/chatbot-deployment.git
+$ git clone https://github.com/ARRETdaniel/22-2_AI.git
 $ cd chatbot-deployment
 $ python3 -m venv venv
 $ . venv/bin/activate
@@ -38,17 +38,12 @@ the following command to test it in the console.
 $ (venv) python chat.py
 ```
 
-Now for deployment follow my tutorial to implement `app.py` and `app.js`.
-
-## Watch the Tutorial
-[![Alt text](https://img.youtube.com/vi/a37BL0stIuM/hqdefault.jpg)](https://youtu.be/a37BL0stIuM)
-[https://youtu.be/a37BL0stIuM](https://youtu.be/a37BL0stIuM)
 
 ## Note
 In the video we implement the first approach using jinja2 templates within our Flask app. Only slight modifications are needed to run the frontend separately. I put the final frontend code for a standalone frontend application in the [standalone-frontend](pytorch-chatbot\chatbot-deployment\standalone-frontend) folder.
 
 ## Credits:
-frontend code,
-https://github.com/hitchcliff/front-end-chatjs
-Chatbot in PyTorch,
-https://github.com/python-engineer/pytorch-chatbot
+
+[Frontend code](https://github.com/hitchcliff/front-end-chatjs)
+[Build & Integrate your own custom chatbot to a website (Python & JavaScript)](https://github.com/python-engineer/pytorch-chatbot)
+[Contextual Chatbots with Tensorflow](https://github.com/python-engineer/pytorch-chatbot)
