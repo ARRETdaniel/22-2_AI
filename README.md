@@ -44,6 +44,6 @@ In the video we implement the first approach using jinja2 templates within our F
 
 ## Credits:
 
-[Frontend code](https://github.com/hitchcliff/front-end-chatjs)
-[Build & Integrate your own custom chatbot to a website (Python & JavaScript)](https://github.com/python-engineer/pytorch-chatbot)
-[Contextual Chatbots with Tensorflow](https://github.com/python-engineer/pytorch-chatbot)
+- [Frontend code](https://github.com/hitchcliff/front-end-chatjs)
+- [Build & Integrate your own custom chatbot to a website (Python & JavaScript)](https://github.com/python-engineer/pytorch-chatbot)
+- [Contextual Chatbots with Tensorflow](https://github.com/python-engineer/pytorch-chatbot)
