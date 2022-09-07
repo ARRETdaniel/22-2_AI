@@ -1,0 +1,589 @@
+%% abtex2-modelo-trabalho-academico.tex, v-1.9.5 laurocesar
+%% Copyright 2012-2015 by abnTeX2 group at http://www.abntex.net.br/
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%%
+%% The Current Maintainer of this work is the abnTeX2 team, led
+%% by Lauro César Araujo. Further information are available on
+%% http://www.abntex.net.br/
+%%
+%% This work consists of the files abntex2-modelo-trabalho-academico.tex,
+%% abntex2-modelo-include-comandos and abntex2-modelo-references.bib
+%%
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% abnTeX2: Modelo de Trabalho Academico (tese de doutorado, dissertacao de
+% mestrado e trabalhos monograficos em geral) em conformidade com
+% ABNT NBR 14724:2011: Informacao e documentacao - Trabalhos academicos -
+% Apresentacao
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	twoside,			% para impressão em verso e anverso. Oposto a oneside
+	a4paper,			% tamanho do papel.
+	% -- opções da classe abntex2 --
+	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	french,				% idioma adicional para hifenização
+	spanish,			% idioma adicional para hifenização
+	brazil				% o último idioma é o principal do documento
+	]{abntex2}
+
+% ---
+% Pacotes básicos
+% ---
+\usepackage{lmodern}			% Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{lastpage}			% Usado pela Ficha catalográfica
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificação
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{float}
+% ---
+
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+% ---
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+
+% ---
+% CONFIGURAÇÕES DE PACOTES
+% ---
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}%
+% ---
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\titulo{Inteligência artificial e Chatbots: \\um estudo sobre a implementação no brasil}
+\autor{Daniel Terra Gomes}
+\local{Campos dos Goytacazes, RJ}
+\data{\today, v1.0.0}
+%\orientador{Manuel Antonio Molina Palma}
+%\coorientador{Equipe \abnTeX}
+\instituicao{%
+Universidade Estadual do Norte Fluminense Darcy Ribeiro
+  \par
+  Ciência da Computação
+  \par
+  INF01205 - IA 2022}
+\tipotrabalho{Projeto de Pesquisa}
+% O preambulo deve conter o tipo do trabalho, o objetivo,
+% o nome da instituição e a área de concentração
+\preambulo{Relatório Atividade 1 apresentado ao Curso de Ciência da Computação da
+Universidade Estadual do Norte Fluminense
+Darcy Ribeiro, como requisito avaliativo da
+disciplina.}
+% ---
+
+
+% ---
+% Configurações de aparência do PDF final
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title},
+		pdfauthor={\@author},
+    	pdfsubject={\imprimirpreambulo},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico},
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=blue,          	% color of internal links
+    	citecolor=blue,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+\makeatother
+% ---
+
+% ---
+% Espaçamentos entre linhas e parágrafos
+% ---
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+% ----
+% Início do documento
+% ----
+\begin{document}
+
+% Seleciona o idioma do documento (conforme pacotes do babel)
+%\selectlanguage{english}
+\selectlanguage{brazil}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+% \pretextual
+
+% ---
+% Capa
+% ---
+\imprimircapa
+% ---
+
+% ---
+% Folha de rosto
+% (o * indica que haverá a ficha bibliográfica)
+% ---
+\imprimirfolhaderosto*
+% ---
+
+% ---
+% Inserir a ficha bibliografica
+% ---
+
+% Isto é um exemplo de Ficha Catalográfica, ou ``Dados internacionais de
+% catalogação-na-publicação''. Você pode utilizar este modelo como referência.
+% Porém, provavelmente a biblioteca da sua universidade lhe fornecerá um PDF
+% com a ficha catalográfica definitiva após a defesa do trabalho. Quando estiver
+% com o documento, salve-o como PDF no diretório do seu projeto e substitua todo
+% o conteúdo de implementação deste arquivo pelo comando abaixo:
+%
+% \begin{fichacatalografica}
+%     \includepdf{fig_ficha_catalografica.pdf}
+% \end{fichacatalografica}
+
+%\begin{fichacatalografica}
+%	\sffamily
+%	\vspace*{\fill}					% Posição vertical
+%	\begin{center}					% Minipage Centralizado
+%	\fbox{\begin{minipage}[c][8cm]{13.5cm}		% Largura
+%	\small
+%	\imprimirautor
+%	%Sobrenome, Nome do autor
+%
+%	\hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
+%	\imprimirlocal, \imprimirdata-
+%
+%	\hspace{0.5cm} \pageref{LastPage} p. : il. \\ % (algumas color.) ; 30 cm.\\
+%
+%	\hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
+%
+%	\hspace{0.5cm}
+%	\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
+%	\imprimirdata.}\\
+%
+%	\hspace{0.5cm}
+%		1. Veículos autônomos.
+%		2. Inteligência Artificial.
+%		3. Machine Learning.
+%		4. Condução Autônoma.
+%		I. Manuel Antonio Molina Palma.
+%		II. Universidade Estadual do Norte Fluminense Darcy Ribeiro.
+%		III. Faculdade de Ciência da Computação.
+%		IV. Veículos autônomos e inteligência artificial:
+% um estudo sobre a implementação no brasil.
+%	\end{minipage}}
+%	\end{center}
+%\end{fichacatalografica}
+% ---
+
+% ---
+% Inserir errata
+% ---
+
+% Inserir folha de aprovação
+% ---
+
+% Isto é um exemplo de Folha de aprovação, elemento obrigatório da NBR
+% 14724/2011 (seção 4.2.1.3). Você pode utilizar este modelo até a aprovação
+% do trabalho. Após isso, substitua todo o conteúdo deste arquivo por uma
+% imagem da página assinada pela banca com o comando abaixo:
+%
+% \includepdf{folhadeaprovacao_final.pdf}
+%
+\begin{folhadeaprovacao}
+
+	\begin{center}
+		{\ABNTEXchapterfont\large\imprimirautor}
+
+		\vspace*{\fill}\vspace*{\fill}
+		\begin{center}
+			\ABNTEXchapterfont\bfseries\Large\imprimirtitulo
+		\end{center}
+		\vspace*{\fill}
+
+		\hspace{.45\textwidth}
+		\begin{minipage}{.5\textwidth}
+			\imprimirpreambulo
+		\end{minipage}%
+		\vspace*{\fill}
+	\end{center}
+	% \begin{center}
+	%	\imprimirlocal, \today
+	%\end{center}
+	%%%%%%%%%%%%\assinatura{\textbf{\imprimirorientador} \\ Orientador}
+
+	%\assinatura{\textbf{Professor} \\ Convidado 1}
+	% \assinatura{\textbf{Professor} \\ Convidado 2}
+	%\assinatura{\textbf{Professor} \\ Convidado 3}
+	%\assinatura{\textbf{Professor} \\ Convidado 4}
+
+	\begin{center}
+		\vspace*{0.5cm}
+		{\large\imprimirlocal}
+		\par
+		{\large\imprimirdata}
+		\vspace*{1cm}
+	\end{center}
+
+\end{folhadeaprovacao}
+% ---
+
+% ---
+% Dedicatória
+% ---
+\begin{dedicatoria}
+	\vspace*{\fill}
+	\centering
+	\noindent
+	\textit{ Este trabalho é dedicado às crianças adultas que,\\
+		quando pequenas, sonharam em se tornar cientistas.} \vspace*{\fill}
+\end{dedicatoria}
+% ---
+
+% ---
+% Agradecimentos
+% ---
+%%%%\begin{agradecimentos}
+%%%%Agradeço aos meus pais que se dedicaram para que eu pudesse estar cursando esta graduação, assim podendo completar mais uma etapa da minha vida.
+%%%%Sem o apoio, conselhos, carinho e amor, nada disso seria possível. Sou eternamente grato por tudo que vocês fazem e sempre fizeram para que minha vida fosse especial.
+%%%%
+%%%%Agradeço ao professor Dr. Manuel Antonio Molina Palma pela dedicação e paciência durante o lecionamento desta disciplina, e obrigado pela ajuda e por estar disponível nos momentos de necessidade.
+%%%%
+%%%%Por último, mas não menos importante, agradeço a toda minha família e amigos que estiveram comigo em todos os momentos da minha vida.
+%%%%
+%%%%
+%%%%\end{agradecimentos}
+% ---
+
+% ---
+% Epígrafe
+% ---
+\begin{epigrafe}
+	\vspace*{\fill}
+	\begin{flushright}
+		\textit{``Behind me lies a farm. \\
+			I wonder if there is bread above the hearth \\
+			and if I will ever return. \\
+			(Pantheon, League of Legends)}
+	\end{flushright}
+\end{epigrafe}
+% ---
+
+% ---
+% RESUMOS
+% ---
+
+% resumo em português
+\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
+\begin{resumo}[Resumo]
+	\begin{otherlanguage*}{portuguese}
+		A condução autônoma é conhecida como a capacidade de veículos se locomoverem de forma independente, dispensando completa ou parcialmente a necessidade de um condutor.
+		O presente projeto busca apresentar conceitos técnicos de software desses veículos autônomos, e os desafios com relação a sua adoção no Brasil. Além disso, é apresentado o panorama mundial e brasileiro do nível de penetração no mercado brasileiro desses veículos. Adicionalmente, será apresentado quais são  os diferentes tipos de veículos autônomos, e as tecnologias que o fazem possível.
+		Desse modo, este trabalho tem como objetivo apresentar as tecnologias essenciais para a condução autônoma, os desafios para a implementação dessa tecnologia no país.
+		De acordo com a metodologia exploratória, este projeto pretende mapear o cenário dessa tecnologia de veículos autônomos no Brasil e realizar uma investigação teórica para entender melhor os fundamentos tecnológicos que viabilizam essa tecnologia. Para tal, será realizado pesquisas bibliográficas do assunto, buscando conteúdos em livros, artigos, sites e fóruns, permitindo compreender os conceitos e características dos temas abordados e ampliar o conhecimento sobre temas emergentes e tecnologias relacionadas.
+		Diante dessas informações, será feito um estudo sobre como esses veículos operam, atualmente, na sociedade, além da análise dos benefícios e desafios que podem gerar. Assim possibilitando coletar informações que irão ampliar os conhecimentos envolvendo veículos autônomos e inteligência artificial, sobretudo nos aspectos tecnológicos da camada de software.
+		Como resultado, ao final deste projeto, teremos percorrido e estruturado o cenário de
+		Veículos Autônomos no Brasil, e entendido suas tecnologias essenciais.
+		\vspace{\onelineskip}
+
+		\noindent
+		\textbf{Palavras-chave}: Veículos autônomos. Inteligência Artificial. Machine Learning. Condução Autônoma.
+	\end{otherlanguage*}
+\end{resumo}
+
+% resumo em inglês
+\begin{resumo}[Abstract]
+	\begin{otherlanguage*}{english}
+		Autonomous driving is the ability of vehicles to move independently, fully or partially, dispensing the need for a driver. The current project seeks to present technical software concepts of these autonomous vehicles and the challenges regarding their adoption in Brazil. In addition, an overview of the level of adoption in the Brazilian and global market of these vehicles will be presented. Further, the different types of autonomous vehicles will be shown and the technologies that make them possible. Thus, this work aims to display the essential technologies for autonomous driving and the challenges of their implementation in Brazil. According to the exploratory methodology, this project intends to map the scenario of this autonomous vehicle technology in Brazil and execute a theoretical investigation to better understand the technological foundations that make this technology possible. Therefore, bibliographic research on the subject will be carried out, seeking content in books, articles, websites, and forums. This process will allow acknowledging the concepts and characteristics of the topics addressed and expand knowledge about emerging topics and related technologies. Given this information, a study will be carried out on how these vehicles currently operate in society and the benefits and challenges they can generate. Thus, making it possible to collect information that will expand knowledge involving autonomous vehicles and artificial intelligence, especially in the technological aspects of the software layer. As a result, at the end of this project, we will have covered and structured the scenario of Autonomous Vehicles in Brazil and understood its essential technologies.
+
+		\vspace{\onelineskip}
+
+		\noindent
+		\textbf{Keywords}: Autonomous vehicles. Artificial Intelligence. Machine Learning. Autonomous Driving.
+	\end{otherlanguage*}
+\end{resumo}
+
+%%%%%%%%%%%
+% ---
+% inserir lista de ilustrações
+% ---
+%\pdfbookmark[0]{\listfigurename}{lof}
+%\listoffigures*
+%\cleardoublepage
+% ---
+
+% ---
+% inserir lista de tabelas
+% ---
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de abreviaturas e siglas
+% ---
+\begin{siglas}
+	\item[PDTU] Plano Diretor de Transporte Urbano
+	\item[ML] Machine Learning
+	\item[IA] Inteligência Artificial
+\end{siglas}
+% ---
+
+% ---
+% inserir lista de símbolos
+% ---
+
+
+% ---
+% inserir o sumario
+% ---
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+% ---
+
+
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+
+% ----------------------------------------------------------
+% Introdução (exemplo de capítulo sem numeração, mas presente no Sumário)
+% ----------------------------------------------------------
+\chapter*[Projeto de Pesquisa]{Introdução}
+\addcontentsline{toc}{chapter}{Introdução}
+% ----------------------------------------------------------
+Veículos são partes essenciais de nossas vidas, fazemos uso para ir a universidade, trabalho, escola, compras, viagens e muito mais. Sendo um dos principais meios de transporte em nossa sociedade.
+Todavia, com a evolução tecnológica buscamos maneiras de tornar nossas vidas mais práticas, e automatizadas. A partir dessa necessidade surgem os veículos autônomos, que são veículos que dispensam parcialmente ou totalmente a exigência de um condutor para controlá-lo. Assim trazendo uma maior praticidade, segurança e conforto para os deslocamentos. Sendo a segurança e praticidade um dos principais pontos para aqueles que desejam aderir a tecnologia.
+Estima-se que no brasil o número de mortes em acidentes de transporte terrestre no período de 2019 foi de 31.945 \cite{Anexo_I_pnatrans}. Veículos autônomos vêm com a promessa de buscar uma redução nesses números através da retirada do principal causador de acidentes de trânsito: erros humanos.
+
+Ademais, Veículos Autônomos vem como uma forma de minimizar os congestionamentos nas grandes metrópoles. Segundo o  Plano Estratégico de Desenvolvimento Urbano Integrado da Região Metropolitana do Rio de Janeiro, \cite{rj_transito}, apenas na hora do rush da manhã o fluxo de viagens de São Gonçalo a Niterói chega a quase 100 mil pessoas sendo transportadas; desses deslocamentos cerca de 80\% das viagens são feitas em transporte público – ônibus convencionais. Diante disso, uma das propostas para suprir essa demanda de transporte seria a inclusão de veículos autônomos. Nesse formato, carros poderiam ser solicitados como, hoje, são feitas as corridas de aplicativos, e os ônibus do transporte público  poderiam operar por mais horas e com menor custo.
+Entretanto, ainda seria necessário lidar com outros problemas como a disputa de espaço nas vias, e os engarrafamentos crônicos das cidades; De acordo com informações do levantamento domiciliar realizado durante a elaboração do último PDTU, o tempo médio de deslocamento do centro de São Gonçalo a Niterói é de 50 minutos, devido a problemas relacionados ao grande fluxo de veículos, sendo o transporte público quase 25\% maior.
+
+Assim, podemos analisar que com a adesão desse tipo de transporte autônomo pela sociedade. Além de mais segurança trará uma diminuição no custo das viagens, e no tempo gasto. A partir de veículos interconectados e inteligentes, que podem se comunicar uns com os outros em tempo real. Possibilitando que os veículos  mantenham uma frequência de velocidade nas vias e evitando as trocas de faixas desnecessárias. Além disso, será possível escapar de áreas com maior número de veículos, e buscar rotas pela cidade que não tenham acidentes.
+
+
+Sendo assim, propomos realizar uma pesquisa exploratória para entender e mapear as perspectivas de Veículos Autônomos no Brasil, fazendo o paralelo com o que há de melhor na área no mundo, além do mais, buscamos estruturar as tecnologias que são usadas para o funcionamento desses veículos. Desse modo, obtendo um aprendizado em diversas áreas e conceitos ligados à IA que é uma tecnologia amplamente utilizada na área.
+Por consequência, ao final deste projeto teremos percorrido e estruturado o cenário de Veículos Autônomos no Brasil, e entendido as tecnologias para a sua operação. Assim alcançando uma aprendizagem eficaz, autodidata, e exploratória.
+\footnote{\url{https://brilliant.org/wiki/pushdown-automata/}}
+
+
+% PARTE
+% ----------------------------------------------------------
+%\part{Preparação da pesquisa}
+% ----------------------------------------------------------
+
+% ---
+% Capitulo com exemplos de comandos inseridos de arquivo externo
+% ---
+%\include{abntex2-modelo-include-comandos}
+\include{projeto}
+% ---
+
+% ----------------------------------------------------------
+% PARTE
+% ----------------------------------------------------------
+%\part{Referenciais teóricos}
+% ----------------------------------------------------------
+
+% ---
+% Capitulo de revisão de literatura
+
+% ---
+
+
+
+% ----------------------------------------------------------
+% PARTE
+% ----------------------------------------------------------
+%\part{Resultados}
+% ----------------------------------------------------------
+
+% ---
+% primeiro capitulo de Resultados
+% ---
+
+% ---
+
+% ---
+
+
+% ---
+% segundo capitulo de Resultados
+% ---
+
+
+% ----------------------------------------------------------
+% Finaliza a parte no bookmark do PDF
+% para que se inicie o bookmark na raiz
+% e adiciona espaço de parte no Sumário
+% ----------------------------------------------------------
+\phantompart
+
+% ---
+% Conclusão
+% ---
+%\chapter{Conclusão}
+% ---
+
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+% ----------------------------------------------------------
+
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+\bibliography{abntex2-modelo-references}
+
+% ----------------------------------------------------------
+% Glossário
+% ----------------------------------------------------------
+%
+% Consulte o manual da classe abntex2 para orientações sobre o glossário.
+%
+%\glossary
+
+% ----------------------------------------------------------
+% Apêndices
+% ----------------------------------------------------------
+
+% ---
+% Inicia os apêndices
+\begin{comment}
+% ---
+\begin{apendicesenv}
+
+	% Imprime uma página indicando o início dos apêndices
+	\partapendices
+
+
+
+	% ----------------------------------------------------------
+	%\chapter{Quisque libero justo}
+	% ----------------------------------------------------------
+
+	\lipsum[50]
+
+	% ----------------------------------------------------------
+	\chapter{Nullam elementum urna vel imperdiet sodales elit ipsum pharetra ligula
+	  ac pretium ante justo a nulla curabitur tristique arcu eu metus}
+	% ----------------------------------------------------------
+	\lipsum[55-57]
+
+\end{apendicesenv}
+% ---
+
+
+% ----------------------------------------------------------
+% Anexos
+% ----------------------------------------------------------
+
+% ---
+% Inicia os anexos
+% ---
+\begin{anexosenv}
+
+	% Imprime uma página indicando o início dos anexos
+	\partanexos
+
+	% ---
+	%\chapter{Morbi ultrices rutrum lorem.}
+	% ---
+	\lipsum[30]
+
+	% ---
+	%\chapter{Cras non urna sed feugiat cum sociis natoque penatibus et magnis dis
+	%parturient montes nascetur ridiculus mus}
+	% ---
+
+	\lipsum[31]
+
+	% ---
+	%\chapter{Fusce facilisis lacinia dui}
+	% ---
+
+	\lipsum[32]
+
+\end{anexosenv}
+
+\end{comment}
+%---------------------------------------------------------------------
+% INDICE REMISSIVO
+%---------------------------------------------------------------------
+\phantompart
+\printindex
+%---------------------------------------------------------------------
+
+\end{document}
