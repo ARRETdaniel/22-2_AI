@@ -12,3 +12,6 @@ pytorch-chatbot/garbage
 *.lot
 *.synctex.gz
 *.toc
+ref
+pytorch-chatbot\garbage
+data.pth
