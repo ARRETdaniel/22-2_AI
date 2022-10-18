@@ -1,4 +1,4 @@
-# Contextual Chatbot in PyTorch Chatbot Deployment with Flask and JavaScript
+# Contextual Chatbot in PyTorch Chatbot
 
 In this tutorial we deploy the chatbot I created in [this](https://github.com/python-engineer/pytorch-chatbot) tutorial with Flask and JavaScript.
 
