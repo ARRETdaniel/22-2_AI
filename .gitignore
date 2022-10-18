@@ -15,3 +15,5 @@ pytorch-chatbot/garbage
 ref
 pytorch-chatbot\garbage
 data.pth
+pytorch-chatbot\chatbot-notebook
+chatbot.ipynb

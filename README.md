@@ -42,8 +42,9 @@ $ (venv) python chat.py
 ## Note
 In the video we implement the first approach using jinja2 templates within our Flask app. Only slight modifications are needed to run the frontend separately. I put the final frontend code for a standalone frontend application in the [standalone-frontend](pytorch-chatbot\chatbot-deployment\standalone-frontend) folder.
 
-## Credits:
+## Contributions:
 
 - [Frontend code](https://github.com/hitchcliff/front-end-chatjs)
 - [Build & Integrate your own custom chatbot to a website (Python & JavaScript)](https://github.com/python-engineer/pytorch-chatbot)
 - [Contextual Chatbots with Tensorflow](https://github.com/python-engineer/pytorch-chatbot)
+- [Build a Chatbot in Pytorch | Python | NLP chatbot | Explained](https://youtu.be/FzIUBqEAipg)
