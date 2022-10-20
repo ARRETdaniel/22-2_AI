@@ -1,5 +1,6 @@
 % ----------------------------------------------------------
 
+
 \chapter[Fundamentação Teórica]{Fundamentação Teórica}\label{Fundamentacao}
 \begin{enumerate}
    \item  Como contribuição teórica inicial para o nosso projeto, temos o material do canal no Youtube 'Python Engineer' a playlist de vídeo aulas,  'Chat Bot With PyTorch - NLP Beginner Tutorial' \footnote{\url{https://www.youtube.com/playlist?list=PLqnslRFeH2UrFW4AUgn-eY37qOAWQpJyg}}. A partir desse conteúdo poderemos dar início aos nossos desenvolvimentos e pesquisas. No tutorial, é desenvolvido um chatbot simples usando PyTorch e Deep Learning. Também fornecendo uma introdução a algumas técnicas básicas de Processamento de Linguagem Natural (PLN).
@@ -51,7 +52,8 @@ Antes de continuar, abaixo encontra-se a lista de requisitos para o nosso projet
 \end{itemize}
 
 \section[Importando Bibliotecas Relevantes]{Importando Bibliotecas Relevantes}
-\begin{lstlisting}[language=Python]
+\begin{lstlisting}[language=Python, caption=Python Bibliotecas]
+
    import numpy as np
    import random
    import json
@@ -65,7 +67,7 @@ Antes de continuar, abaixo encontra-se a lista de requisitos para o nosso projet
 \section[Criando funções personalizadas]{Criando funções personalizadas}
 Criaremos funções personalizadas para que seja fácil implementá-las posteriormente.
 \justifying
-\begin{lstlisting}[language=Python]
+\begin{lstlisting}[language=Python, caption=Python Funções personalizadas]
 def tokenize(sentence):
     return nltk.word_tokenize(sentence)
 
@@ -78,17 +80,17 @@ Nltk ou kit de ferramentas de linguagem natural é uma biblioteca realmente úti
 \section[Stemming]{Stemming}
 
 
-Se tivermos as seguintes palavras como Andei – Ande – Andarei – Andamento, Andando – Andante, podem parecer palavras diferentes, mas geralmente têm o mesmo significado e também a mesma forma base; "and".
+Se tivermos as seguintes palavras como Andei, Ande, Andarei, Andamento, Andando, Andante, podem parecer palavras diferentes, mas geralmente têm o mesmo significado e também a mesma forma base; "and".
 O processo de stemização (do inglês, stemming) consiste em reduzir uma palavra ao seu radical. A palavra “meninas” se reduziria a “menin”, assim como “meninos” e “menininhos”. As palavras “gato”, “gata”, “gatos” e “gatas” reduziriam-se para “gat” \footnote{\url{https://www.computersciencemaster.com.br/como-reduzir-uma-palavra-ao-seu-radical-em-python-stemming/}}.
 Então, para que nosso modelo entenda todas as formas diferentes das mesmas palavras, precisamos treinar nosso modelo com essa forma. Isso é chamado de Stemming. Existem diferentes métodos que podemos usar para derivação. Aqui usaremos o modelo Porter Stemmer da nossa biblioteca NLTK.
 \justifying
-\begin{lstlisting}[language=Python]
+\begin{lstlisting}[language=Python, caption=Python Stemming]
 from nltk.stem.porter import PorterStemmer
 stemmer = PorterStemmer()
 \end{lstlisting}
 
 \section[Bag of Words]{Bag of Words}
-Vamos dividir cada palavra em frases e adicioná-la a um array. Nós estaremos usando um saco de palavras. Que inicialmente será uma lista de zeros com um tamanho igual ao comprimento do array all-words. Se tivermos um array de ` frases = ["hello", "how", "are", "you"]` e um array de total ` words = ["hi", "hello", "I", "you ", "tchau", "obrigado", "legal"]` então seu conjunto de palavras será `bog = [ 0 , 1 , 0 , 1 , 0 , 0 , 0]`. Faremos um loop sobre cada palavra no array all-words e o array bog correspondente a cada palavra. Se uma palavra da frase for encontrada no array all words, 1 será substituído naquele índice/posição no array bag.
+Vamos dividir cada palavra em frases e adicioná-la a um array. Nós estaremos usando um saco de palavras. Que inicialmente será uma lista de zeros com um tamanho igual ao comprimento do array all-words. Se tivermos um array de ` frases = ["ola", "como", "voce", "esta"]` e um array de total ` words = ["oi", "olá", "eu", "você, "tchau", "obrigado", "legal"]` então seu conjunto de palavras será `bog = [ 0 , 1 , 0 , 1 , 0 , 0 , 0]`. Faremos um loop sobre cada palavra no array all-words e o array bog correspondente a cada palavra. Se uma palavra da frase for encontrada no array all words, 1 será substituído naquele índice/posição no array bag.
 \justifying
 
 
@@ -103,19 +105,20 @@ Vamos dividir cada palavra em frases e adicioná-la a um array. Nós estaremos u
 \end{figure}
 
 
-\begin{lstlisting}[language=Python]
+\begin{lstlisting}[language=Python, caption=Python Bag of Words]
 def bag_of_words(tokenized_sentence, words):
     """
     return bag of words array:
-    1 for each known word that exists in the sentence,
-    0 otherwise.
+    1 para cada palavra conhecida que existe na frase,
+    0 caso contrario.
 
 
-    Example:
+    Exem,plo:
 
 
-    sentence = ["hello", "how", "are", "you"]
-    words = ["hi", "hello", "I", "you", "bye", "thank", "cool"]
+    sentence = ["ola", "como", "esta", "voce"]
+    words = ["oi", "ola", "eu", "voce", "tchau",
+     "obrigado", "legal"]
     bag   = [  0 ,    1 ,    0 ,   1 ,    0 ,    0 ,      0]
     """
     # stem each word
@@ -130,5 +133,62 @@ def bag_of_words(tokenized_sentence, words):
 
 \end{lstlisting}
 
-Durante o processo, também usaremos \textbf{nltkwordtokenize()} que converterá uma única string de sentença em uma lista de palavras. Por exemplo, se você passar \textbf{"hello how are you"}, ele retornará \textbf{"hello", "how", "are", "you"}.
-\textbf{Observação:} Passaremos palavras em minúsculas para o \textbf{Stemmer} para que palavras como Good e good (em maiúsculas) não sejam rotuladas como palavras diferentes.
+Durante o processo, também usaremos \textbf{nltkwordtokenize()} que converterá uma única string de sentença em uma lista de palavras. Por exemplo, se você passar \textbf{"Ola, como voce esta?"}, ele retornará \textbf{"ola", "como", "voce", "esta"}.
+\textbf{Observação:} Passaremos palavras em minúsculas para o \textbf{Stemmer} para que palavras como Bom e bom (em maiúsculas) não sejam rotuladas como palavras diferentes.
+
+\section[Carregando os dados e Data Cleaning]{Carregando os dados e Data Cleaning}
+Usaremos um conjunto de dados chamado  \textbf{intents.json} que tem a estrutura mostrada no campo abaixo. Estaremos limpando esses dados de acordo com as nossas necessidades usando as funções que criamos anteriormente.
+
+\begin{lstlisting}[language=python, caption=Data intents.json]
+{
+  "intents": [
+    {
+      "tag": "saudacao",
+      "patterns": [
+        "Oi",
+        "Ei",
+        "Como voce esta",
+        "Tem alguem ai?",
+        "Ola",
+        "Bom dia"
+      ],
+      "responses": [
+        "Ei :-)",
+        "Ola, obrigado pela visita",
+        "Ola, o que posso fazer por voce?",
+        "Ola, como posso ajudar?"
+      ]
+   }
+  ]
+}
+
+
+\end{lstlisting}
+Agora vamos simplesmente carregar o arquivo json usando a função \textbf{jsonload}.
+
+\begin{lstlisting}[language=Python, caption=Python Carregando dados]
+with open('intents.json', 'r') as f:
+    intents = json.load(f)
+\end{lstlisting}
+
+Para obter as informações corretas, iremos descompactá-las com o seguinte código:
+
+\begin{lstlisting}[language=Python, caption=Python Loop nos dados]
+all_words = []
+tags = []
+xy = []
+# loop through each sentence in our intents patterns
+for intent in intents['intents']:
+    tag = intent['tag']
+    # add to tag list
+    tags.append(tag)
+    for pattern in intent['patterns']:
+        # tokenize each word in the sentence
+        w = tokenize(pattern)
+        # add to our words list
+        all_words.extend(w)
+        # add to xy pair
+        xy.append((w, tag))
+
+\end{lstlisting}
+Isso separará todas as tags e palavras em suas listas.

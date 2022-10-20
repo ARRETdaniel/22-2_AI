@@ -1,78 +1,87 @@
 {
   "intents": [
     {
-      "tag": "greeting",
+      "tag": "saudacao",
       "patterns": [
-        "Hi",
-        "Hey",
-        "How are you",
-        "Is anyone there?",
-        "Hello",
-        "Good day"
+        "Oi",
+        "Ei",
+        "Como voce esta",
+        "Tem alguem ai?",
+        "Ola",
+        "Bom dia"
       ],
       "responses": [
-        "Hey :-)",
-        "Hello, thanks for visiting",
-        "Hi there, what can I do for you?",
-        "Hi there, how can I help?"
+        "Ei :-)",
+        "Ola, obrigado pela visita",
+        "Ola, o que posso fazer por voce?",
+        "Ola, como posso ajudar?"
       ]
     },
     {
-      "tag": "goodbye",
-      "patterns": ["Bye", "See you later", "Goodbye"],
+      "tag": "adeus",
+      "patterns": ["Tchau", "Ate logo", "Adeus"],
       "responses": [
-        "See you later, thanks for visiting",
-        "Have a nice day",
-        "Bye! Come back again soon."
+        "Ate mais tarde, obrigado pela visita",
+        "Tenha um bom dia",
+        "Tchau! Volte logo."
       ]
     },
     {
-      "tag": "thanks",
-      "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!"],
-      "responses": ["Happy to help!", "Any time!", "My pleasure"]
+      "tag": "obrigado",
+      "patterns": ["Obrigado", "Obrigado", "Isso e útil", "Muito obrigado!"],
+      "responses": ["Feliz em ajudar!", "A qualquer momento!", "E um prazer"]
     },
     {
-      "tag": "items",
+      "tag": "itens",
       "patterns": [
-        "Which items do you have?",
-        "What kinds of items are there?",
-        "What do you sell?"
+        "Quais itens voce tem?",
+        "Que tipos de itens existem?",
+        "O que tem a venda?",
+        "O que venda?",
+        "O que voce vende?"
       ],
-      "responses": ["We sell coffee and tea", "We have coffee and tea"]
+      "responses": ["Vendemos cafe e cha", "Temos cafe e cha"]
     },
     {
-      "tag": "payments",
+      "tag": "pagamentos",
       "patterns": [
-        "Do you take credit cards?",
-        "Do you accept Mastercard?",
-        "Can I pay with Paypal?",
-        "Are you cash only?"
+        "Voces aceitam cartoes de credito?",
+        "Voce aceita MasterCard?",
+        "Formas de pagamento?",
+        "Aceita Pix?",
+        "Posso pagar com Paypal?",
+        "aceita apenas dinheiro?"
       ],
       "responses": [
-        "We accept VISA, Mastercard and Paypal",
-        "We accept most major credit cards, and Paypal"
+        "Aceitamos VISA, Mastercard, Paypal e Pix!",
+        "Aceitamos a maioria dos principais cartoes de credito, Paypal e Pix"
       ]
     },
     {
-      "tag": "delivery",
+      "tag": "entrega",
       "patterns": [
-        "How long does delivery take?",
-        "How long does shipping take?",
-        "When do I get my delivery?",
-        "Do you make deliveries?"
+        "Quanto tempo a entrega demora?",
+        "Quais sao as formas de entregas?",
+        "Quanto tempo demora o envio?",
+        "Como funciona as entregas?",
+        "Quando recebo minha entrega?",
+        "Voce faz entregas?",
+        "Voce faz entregas em casa"
       ],
-      "responses": ["Delivery takes 2-4 days", "Shipping takes 2-4 days"]
+      "responses": ["Entrega demora 2-4 dias", "Envio demora 2-4 dias"]
     },
     {
-      "tag": "funny",
+      "tag": "engracado",
       "patterns": [
-        "Tell me a joke!",
-        "Tell me something funny!",
-        "Do you know a joke?"
+        "Conte-me uma piada!",
+        "Diga-me algo engracado!",
+        "Voce sabe uma piada?"
       ],
       "responses": [
-        "Why did the hipster burn his mouth? He drank the coffee before it was cool.",
-        "What did the buffalo say when his son left for college? Bison."
+        "Por que enviar SPAM e algo justificavel? -  Porque os fins justificam os emails",
+        "Que tipo de computador esta bombando nas redes sociais? - O deskTOP",
+        "Qual o endereco do site do cavalo? - www.cavalo pontocom pontocom pontocom",
+        "Por que o mouse e muito mimado? - Porque tudo o que ele quer, o mouse pad"
       ]
     }
   ]

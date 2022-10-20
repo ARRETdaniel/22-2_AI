@@ -65,7 +65,41 @@
 \usepackage{ragged2e}
 
 
-% ---
+% --- https://www.overleaf.com/learn/latex/Code_listing
+
+
+
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+
+
+
 
 % ---
 % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
@@ -80,6 +114,8 @@
 \usepackage[alf]{abntex2cite}	% Citações padrão ABNT
 
 % ---
+% First pip install pygments
+
 % CONFIGURAÇÕES DE PACOTES
 % ---
 
@@ -373,9 +409,9 @@ disciplina.}
 % ---
 % inserir lista de ilustrações
 % ---
-%\pdfbookmark[0]{\listfigurename}{lof}
-%\listoffigures*
-%\cleardoublepage
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
 % ---
 
 % ---
@@ -384,6 +420,11 @@ disciplina.}
 \pdfbookmark[0]{\listtablename}{lot}
 \listoftables*
 \cleardoublepage
+
+\pdfbookmark[0]{\listtablename}{lot}
+\lstlistoflistings
+\cleardoublepage
+
 % ---
 
 % ---
