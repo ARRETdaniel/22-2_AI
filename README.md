@@ -1,11 +1,22 @@
 # Contextual Chatbot in PyTorch
 
-In this tutorial we deploy the chatbot I created in [this](https://github.com/python-engineer/pytorch-chatbot) tutorial with Flask and JavaScript.
+In this tutorial, we provide an introduction to AI and Chatbots. We developed a simple Chatbot and its documentation, we used neural layers to process messages sent by a user. In this way, it was possible to achieve the desired objective of responding to a user with responses from our training base.
 
-This gives 2 deployment options:
-- Deploy within Flask app with jinja2 template
-- Serve only the Flask prediction API. The used html and javascript files can be included in any Frontend application (with only a slight modification) and can run completely separate from the Flask App then.
+Neste tutorial, fornecemos uma introdução à IA e aos Chatbots. Desenvolvemos um chatbot simples e sua documentação, utilizamos camadas neurais para processar as mensagens enviadas por um usuário. Desta forma, foi possível atingir o objetivo pretendido de responder a um usuário com respostas da nossa base de dados.
 
+## Requirements
+
+- Python 3
+- Dictionaries & Lists
+- Numpy
+- Pandas
+- Pytorch
+- Natural Language Processing (Bag of Words)
+
+## Software Used
+
+- Anaconda
+- VScode
 ## Initial Setup:
 This repo currently contains the starter files.
 
@@ -13,7 +24,10 @@ Clone repo and create a virtual environment
 ```
 $ git clone https://github.com/ARRETdaniel/22-2_AI.git
 $ cd chatbot-deployment
+
 $ python3 -m venv venv
+ou
+conda activate pytorch MORE INFO: https://cran.r-project.org/web/packages/rTorch/vignettes/installation.html
 $ . venv/bin/activate
 ```
 Install dependencies
@@ -38,9 +52,15 @@ the following command to test it in the console.
 $ (venv) python chat.py
 ```
 
+```
+running...
+hi - :)
+```
 
-## Note
-In the video we implement the first approach using jinja2 templates within our Flask app. Only slight modifications are needed to run the frontend separately. I put the final frontend code for a standalone frontend application in the [standalone-frontend](pytorch-chatbot\chatbot-deployment\standalone-frontend) folder.
+# Documentation / Documentação:
+
+- [Inteligência artificial e Chatbots: um estudo exploratório](relatorio\relatorioIA.pdf)
+
 
 ## Contributions:
 
