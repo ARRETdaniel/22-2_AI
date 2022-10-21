@@ -43,11 +43,36 @@ Antes de continuar, abaixo encontra-se a lista de requisitos para o nosso projet
 \justifying
 \begin{itemize}
    \item \textit{Python 3}
+         \begin{itemize}
+            \item \textit{Define: Python} é uma linguagem de programação interpretada, orientada a objetos e de alto nível com semântica dinâmica. Suas estruturas de dados embutidas de alto nível, combinadas com tipagem dinâmica e vinculação dinâmica, o tornam muito atraente para o Desenvolvimento Rápido de Aplicativos e para uso como uma linguagem de script ou cola para conectar componentes existentes \footnote{\url{https://www.python.org/doc/essays/blurb/}}.
+         \end{itemize}
+
    \item \textit{Dictionaries e Lists}
-   \item \textit{Numpy}
+         \begin{itemize}
+            \item \textit{Define: Listas} são tipos de dados mutáveis em Python. Lists é um tipo de dados de índice baseado em 0, o que significa que o índice do primeiro elemento começa em 0. As listas são usadas para armazenar vários itens em uma única variável. As listas são um dos 4 tipos de dados do Python, ou seja, Listas, Dicionário, Tupla e Conjunto \footnote{\url{https://www.analyticsvidhya.com/blog/2021/06/working-with-lists-dictionaries-in-python/}}.
+            \item \textit{Define: Dicionários} Dicionários são a implementação do Python de uma estrutura de dados que é mais conhecida como uma matriz associativa. Um dicionário consiste em uma coleção de pares chave-valor. Cada par de chave-valor mapeia a chave para seu valor associado\footnote{\url{https://realpython.com/python-dicts}}.
+         \end{itemize}
+
+   \item \textit{NumPy}
+         \begin{itemize}
+            \item \textit{Define: NumPy} é o pacote fundamental para computação científica em Python. É uma biblioteca Python que fornece um objeto array multidimensional, vários objetos derivados (como arrays e matrizes mascarados) e uma variedade de rotinas para operações rápidas em arrays, incluindo matemática, lógica, manipulação de formas, classificação, seleção, E/S , Fourier discreto transforma álgebra linear básica, operações estatísticas básicas, simulação aleatória e muito mais\footnote{\url{https://numpy.org/doc/stable/user/whatisnumpy.html}}.
+         \end{itemize}
+
    \item \textit{Pandas}
+         \begin{itemize}
+            \item \textit{Define: Pandas} é um pacote Python de código aberto que é mais amplamente usado para ciência de dados/análise de dados e tarefas de aprendizado de máquina. Ele é construído em cima de outro pacote chamado Numpy, que fornece suporte para arrays multidimensionais\footnote{\url{https://www.activestate.com/resources/quick-reads/what-is-pandas-in-python-everything-you-need-to-know/}}.
+         \end{itemize}
+
    \item \textit{Pytorch}
+         \begin{itemize}
+            \item \textit{Define: PyTorch} é uma biblioteca de aprendizado de máquina para Python usada principalmente para processamento de linguagem natural. O software de código aberto foi desenvolvido pelas equipes de inteligência artificial do Facebook Inc. em 2016. O PyTorch oferece dois recursos significativos, incluindo computação de tensor, bem como redes neurais profundas funcionais.
+         \end{itemize}
+
    \item \textit{Natural Language Processing (Bag of Words)}
+         \begin{itemize}
+            \item \textit{Define: NLP ou PLN }O processamento de linguagem natural usa aprendizado de máquina para revelar a estrutura e o significado do texto. Com aplicativos de processamento de linguagem natural, as organizações podem analisar texto e extrair informações sobre pessoas, lugares e eventos para entender melhor o sentimento da mídia social e as conversas com os clientes \footnote{\url{https://cloud.google.com/learn/what-is-natural-language-processing}}.
+         \end{itemize}
+
 
 \end{itemize}
 
@@ -121,9 +146,9 @@ def bag_of_words(tokenized_sentence, words):
      "obrigado", "legal"]
     bag   = [  0 ,    1 ,    0 ,   1 ,    0 ,    0 ,      0]
     """
-    # stem each word
+    # stem cada palavra
     sentence_words = [stem(word) for word in tokenized_sentence]
-    # initialize bag with 0 for each word
+    # initialize bag com 0 para cada palavra
     bag = np.zeros(len(words), dtype=np.float32)
     for idx, w in enumerate(words):
         if w in sentence_words:
@@ -177,18 +202,117 @@ Para obter as informações corretas, iremos descompactá-las com o seguinte có
 all_words = []
 tags = []
 xy = []
-# loop through each sentence in our intents patterns
+# loop atraves de cada frase no nosso intents patterns
 for intent in intents['intents']:
     tag = intent['tag']
-    # add to tag list
+    # adicionar a tag list
     tags.append(tag)
     for pattern in intent['patterns']:
-        # tokenize each word in the sentence
+        # tokenize cada palavra na frase
         w = tokenize(pattern)
-        # add to our words list
+        # adicionar a nossa lista de palavras
         all_words.extend(w)
-        # add to xy pair
+        # adicionar ao par xy
         xy.append((w, tag))
 
 \end{lstlisting}
 Isso separará todas as tags e palavras em suas listas.
+
+\section[Limpeza e preparação dos dados]{Limpeza e preparação dos dados}
+
+
+Estaremos usando nossas funções personalizadas e limpando os dados implementando as funções que criamos em nossas células anteriores.
+
+\begin{lstlisting}[language=Python, caption=Data Cleaning]
+
+# stem e lower cada palavra
+ignore_words = ['?', '.', '!']
+all_words = [stem(w) for w in all_words if w not in ignore_words]
+# remover duplicados e sort
+all_words = sorted(set(all_words))
+tags = sorted(set(tags))
+
+print(len(xy), "patterns") # padroes
+print(len(tags), "tags:", tags) # tags
+print(len(all_words), "unique stemmed words:", all_words) # palavras derivadas unicas
+
+\end{lstlisting}
+
+Criando dados de treinamento: transformaremos os dados em um formato que nosso modelo PyTorch possa entender facilmente
+
+\begin{lstlisting}[language=Python, caption=Training Data]
+
+# criar dados de treinamento
+X_train = []
+y_train = []
+for (pattern_sentence, tag) in xy:
+    # X: bag de palavras para cada pattern_sentence
+    bag = bag_of_words(pattern_sentence, all_words)
+    X_train.append(bag)
+    # y: PyTorch CrossEntropyLoss precisa apenas class labels, nao one-hot
+    label = tags.index(tag)
+    y_train.append(label)
+
+X_train = np.array(X_train)
+y_train = np.array(y_train)
+
+\end{lstlisting}
+
+\section[Modelo PyTorch]{Modelo PyTorch}
+
+Aqui estaremos fazendo uma classe para implementar nossa rede neural personalizada. Será uma Rede neural feed-forward que terá 3 Camadas Lineares e usaremos a função de ativação “ReLU”. Nota: Usamos a função super() para herdar as propriedades de sua classe pai. Este é um conceito de Programação Orientada a Objetos (OOP).
+
+\begin{itemize}
+   \item \textit{Define: ReLU} é uma função de ativação não linear que é usada em redes neurais multicamadas ou redes neurais profundas. Esta função pode ser representada como:
+
+         \begin{figure}[H]
+            \begin{center}
+               \includegraphics[width=10cm]{img/relu.jpg}
+               \caption{ReLu} \label{ReLu}
+               \medskip
+               \small
+               onde x = um valor de entrada.
+            \end{center}
+         \end{figure}
+
+         De acordo com a equação 1, a saída de ReLu é o valor máximo entre zero e o valor de entrada. A saída é igual a zero quando o valor de entrada é negativo e o valor de entrada quando a entrada é positiva. Assim, podemos reescrever a equação 1 da seguinte forma:
+
+         \begin{figure}[H]
+            \begin{center}
+               \includegraphics[width=10cm]{img/relu2.jpg}
+               \caption{ReLu} \label{ReLu2}
+               \medskip
+               \small
+               onde x = um valor de entrada.
+            \end{center}
+         \end{figure}
+
+
+         Exemplos de ReLu: Dadas diferentes entradas, a função gera diferentes saídas. Por exemplo, quando x é igual a -5, a saída de f(-5) é 0. Por outro lado, a saída de f(0) é 0 porque a entrada é maior ou igual a 0. Além disso, o resultado de f (5) é 5 porque a entrada é maior que zero \footnote{\url{https://deepai.org/machine-learning-glossary-and-terms/relu/}}.
+\end{itemize}
+
+\subsection[Feed Forward Neural Network]{Feed Forward Neural Network}
+
+\textit{Define: Feed Forward Neural Network} Uma Rede Neural Feed Forward é uma rede neural artificial na qual as conexões entre os nós não formam um ciclo. O oposto de uma rede neural feed-forward é uma rede neural recorrente, na qual certos caminhos são ciclados. O modelo feed-forward é a forma mais simples de uma rede neural, pois a informação é processada apenas em uma direção. Embora os dados possam passar por vários nós ocultos, eles sempre se movem em uma direção e nunca para trás \footnote{\url{https://deepai.org/machine-learning-glossary-and-terms/feed-forward-neural-network}}.
+
+
+\begin{figure}[H]
+   \begin{center}
+      \includegraphics[width=10cm]{img/ffnn.png}
+      \caption{Feed Forward Neural Network} \label{ffnn}
+      \medskip
+      \small
+      Exemplo de uma rede neural feed-forward.
+   \end{center}
+\end{figure}
+
+Desse modo, uma representação válida para o nosso projeto seria a FFNN abaixo:
+\begin{figure}[H]
+   \begin{center}
+      \includegraphics[width=10cm]{img/ffnn2.png}
+      \caption{Feed Forward Neural Network} \label{ffnn2}
+      \medskip
+      \small
+      Exemplo de uma rede neural feed-forward para o nosso projeto. Imagem retirada da Fundamentação Teórica \ref{Fundamentacao}.
+   \end{center}
+\end{figure}
