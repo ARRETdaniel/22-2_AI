@@ -59,7 +59,7 @@ hi - :)
 
 # Documentation / Documentação:
 
-- [Inteligência artificial e Chatbots: um estudo exploratório](22-2_AI/relatorio/relatorioIA.pdf)
+- [Inteligência artificial e Chatbots: um estudo exploratório](relatorio/relatorioIA.pdf)
 
 
 ## Contributions:
