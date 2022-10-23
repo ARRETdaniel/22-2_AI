@@ -70,6 +70,9 @@
 
 
 \usepackage{xcolor}
+\renewcommand\lstlistingname{Lista de código}
+\renewcommand\lstlistlistingname{Lista de trechos de código}
+
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -417,13 +420,13 @@ disciplina.}
 % ---
 % inserir lista de tabelas
 % ---
-\pdfbookmark[0]{\listtablename}{lot}
-\listoftables*
-\cleardoublepage
+%\pdfbookmark[0]{\listtablename}{lot}
+%\listoftables*
+%\cleardoublepage
 
-\pdfbookmark[0]{\listtablename}{lot}
+\pdfbookmark[0]{\lstlistingname}{lop}%
 \lstlistoflistings
-\cleardoublepage
+
 
 % ---
 
