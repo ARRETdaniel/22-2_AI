@@ -349,7 +349,7 @@ Em redes neurais, uma função de ativação agora comumente usada é a unidade 
    \begin{center}
       \includegraphics[width=10cm]{img/relu2.png}
       \caption{A representação matemática da função ReLU} \label{relu2}
-       \end{center}
+   \end{center}
 \end{figure}
 
 O que essa função faz? Basicamente, ele define qualquer coisa menor ou igual a 0 (números negativos) como 0. E mantém todos os mesmos valores para quaisquer valores > 0 \footnote{\url{https://kawahara.ca/what-is-the-derivative-of-relu/}}.
@@ -365,7 +365,7 @@ Em outras palavras, digamos que tenhamos entrada menor que 0, então a saída é
    \begin{center}
       \includegraphics[width=10cm]{img/relu3.png}
       \caption{A derivada da função ReLU} \label{relu3}
-       \end{center}
+   \end{center}
 \end{figure}
 
 
@@ -404,9 +404,9 @@ Alguns exemplos de métodos mágicos são init, len, repr, add e etc \footnote{\
 
 
 \begin{itemize}
- \item O método init para inicialização é invocado sem qualquer chamada, quando uma instância de uma classe é criada, como construtores em algumas outras linguagens de programação, como C++, Java, PHP etc. Esses métodos são a razão pela qual podemos adicionar duas strings com ' +' operador sem qualquer typecast explícito.
- \item O método getitem é usado para obter um item do atributo das instâncias invocadas. getitem é comumente usado com contêineres como lista, tupla, etc.
- \item O método mágico len é usado para encontrar o comprimento dos atributos da instância. Quando usamos len(instance), ele retorna o comprimento do atributo de instância que geralmente é um container.
+   \item O método init para inicialização é invocado sem qualquer chamada, quando uma instância de uma classe é criada, como construtores em algumas outras linguagens de programação, como C++, Java, PHP etc. Esses métodos são a razão pela qual podemos adicionar duas strings com ' +' operador sem qualquer typecast explícito.
+   \item O método getitem é usado para obter um item do atributo das instâncias invocadas. getitem é comumente usado com contêineres como lista, tupla, etc.
+   \item O método mágico len é usado para encontrar o comprimento dos atributos da instância. Quando usamos len(instance), ele retorna o comprimento do atributo de instância que geralmente é um container.
 \end{itemize}
 
 \begin{lstlisting}[language=Python, caption=Dataset]
@@ -443,21 +443,21 @@ Hiperparâmetros:
 
 
 \begin{itemize}
- \item  \textit{Define: Epoch} O número de épocas é um hiperparâmetro que define o número de vezes que o algoritmo de aprendizado funcionará em todo o conjunto de dados de treinamento.
+   \item  \textit{Define: Epoch} O número de épocas é um hiperparâmetro que define o número de vezes que o algoritmo de aprendizado funcionará em todo o conjunto de dados de treinamento.
 
-Uma época significa que cada amostra no conjunto de dados de treinamento teve a oportunidade de atualizar os parâmetros internos do modelo.
+         Uma época significa que cada amostra no conjunto de dados de treinamento teve a oportunidade de atualizar os parâmetros internos do modelo.
 
-Você pode pensar em um loop for sobre o número de épocas em que cada loop prossegue no conjunto de dados de treinamento. Dentro desse loop for há outro loop for aninhado que itera sobre cada lote de amostras, onde um lote tem o número de amostras "tamanho de lote" especificado.
+         Você pode pensar em um loop for sobre o número de épocas em que cada loop prossegue no conjunto de dados de treinamento. Dentro desse loop for há outro loop for aninhado que itera sobre cada lote de amostras, onde um lote tem o número de amostras "tamanho de lote" especificado.
 
-O número de épocas é tradicionalmente grande, geralmente centenas ou milhares, permitindo que o algoritmo de aprendizado seja executado até que o erro do modelo seja suficientemente minimizado. Você pode ver exemplos do número de épocas na literatura e em tutoriais definidos para 10, 100, 500, 1000 e maiores.
+         O número de épocas é tradicionalmente grande, geralmente centenas ou milhares, permitindo que o algoritmo de aprendizado seja executado até que o erro do modelo seja suficientemente minimizado. Você pode ver exemplos do número de épocas na literatura e em tutoriais definidos para 10, 100, 500, 1000 e maiores.
 
-\item \textit{Define: Batch} O tamanho do Batch é um hiperparâmetro que define o número de amostras para trabalhar antes de atualizar os parâmetros do modelo interno.
+   \item \textit{Define: Batch} O tamanho do Batch é um hiperparâmetro que define o número de amostras para trabalhar antes de atualizar os parâmetros do modelo interno.
 
-Pense em um Batch como um loop for iterando sobre uma ou mais amostras e fazendo previsões. No final do Batch , as previsões são comparadas com as variáveis de saída esperadas e um erro é calculado. A partir desse erro, o algoritmo de atualização é usado para melhorar o modelo, por exemplo. mover para baixo ao longo do gradiente de erro.
+         Pense em um Batch como um loop for iterando sobre uma ou mais amostras e fazendo previsões. No final do Batch , as previsões são comparadas com as variáveis de saída esperadas e um erro é calculado. A partir desse erro, o algoritmo de atualização é usado para melhorar o modelo, por exemplo. mover para baixo ao longo do gradiente de erro.
 
-\item \textit{Define: Learnin Rate} O hiperparâmetro de taxa de aprendizado controla a taxa ou velocidade na qual o modelo aprende. Especificamente, ele controla a quantidade de erro distribuído com o qual os pesos do modelo são atualizados cada vez que são atualizados, como no final de cada lote de exemplos de treinamento.
+   \item \textit{Define: Learnin Rate} O hiperparâmetro de taxa de aprendizado controla a taxa ou velocidade na qual o modelo aprende. Especificamente, ele controla a quantidade de erro distribuído com o qual os pesos do modelo são atualizados cada vez que são atualizados, como no final de cada lote de exemplos de treinamento.
 
-\item \textit{Define: Hidden Units} As unidades ocultas fazem parte das redes neurais, que se referem aos componentes que compõem as camadas de processadores entre as unidades de entrada e saída em uma rede neural. É importante especificar o número de hiperparâmetros de unidades ocultas para a rede neural. Deve estar entre o tamanho da camada de entrada e o tamanho da camada de saída. Mais especificamente, o número de unidades ocultas deve ser 2/3 do tamanho da camada de entrada, mais o tamanho da camada de saída.
+   \item \textit{Define: Hidden Units} As unidades ocultas fazem parte das redes neurais, que se referem aos componentes que compõem as camadas de processadores entre as unidades de entrada e saída em uma rede neural. É importante especificar o número de hiperparâmetros de unidades ocultas para a rede neural. Deve estar entre o tamanho da camada de entrada e o tamanho da camada de saída. Mais especificamente, o número de unidades ocultas deve ser 2/3 do tamanho da camada de entrada, mais o tamanho da camada de saída.
 
 \end{itemize}
 
@@ -483,8 +483,8 @@ print(input_size, output_size)
 
 Vamos agora instanciar as funções de modelo, perda e otimizador.
 
-     Função de Perda: Cross Entropy
-     Otimizador: Adam Optimizer
+Função de Perda: Cross Entropy
+Otimizador: Adam Optimizer
 
 \begin{lstlisting}[language=Python, caption=Perda e otimizador]
 dataset = ChatDataset()
@@ -502,3 +502,124 @@ criterion = nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
 \end{lstlisting}
+
+\section[Treinando o Modelo]{Treinando o Modelo}
+
+\begin{lstlisting}[language=Python, caption=Treinando o Modelo]
+
+# Treine o modelo
+for epoch in range(num_epochs):
+    for (words, labels) in train_loader:
+        words = words.to(device)
+        labels = labels.to(dtype=torch.long).to(device)
+
+        # Forward pass
+        outputs = model(words)
+        # if y would be one-hot, we must apply
+        # labels = torch.max(labels, 1)[1]
+        loss = criterion(outputs, labels)
+
+        # Backward e optimize
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+
+    if (epoch+1) % 100 == 0:
+        print (f'Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}')
+
+
+print(f'final loss: {loss.item():.4f}')
+
+data = {
+"model_state": model.state_dict(),
+"input_size": input_size,
+"hidden_size": hidden_size,
+"output_size": output_size,
+"all_words": all_words,
+"tags": tags
+}
+
+
+\end{lstlisting}
+
+\begin{figure}[H]
+   \begin{center}
+      \includegraphics[width=10cm]{img/treinando.png}
+      \caption{output} \label{tmode}
+   \end{center}
+\end{figure}
+
+
+\subsection[Salvando o modelo treinado]{Salvando o modelo treinado}
+
+\begin{lstlisting}[language=Python, caption=Salvando o modelo treinado]
+
+FILE = "data.pth"
+torch.save(data, FILE)
+
+print(f'training complete. file saved to {FILE}')
+
+\end{lstlisting}
+
+section[Carregando nosso modelo salvo]{Carregando modelo salvo}
+
+\begin{lstlisting}[language=Python, caption=Carregando modelo salvo]
+
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+with open('intents.json', 'r') as json_data:
+    intents = json.load(json_data)
+
+FILE = "data.pth"
+data = torch.load(FILE)
+
+input_size = data["input_size"]
+hidden_size = data["hidden_size"]
+output_size = data["output_size"]
+all_words = data['all_words']
+tags = data['tags']
+model_state = data["model_state"]
+
+model = NeuralNet(input_size, hidden_size, output_size).to(device)
+model.load_state_dict(model_state)
+model.eval()
+
+\end{lstlisting}
+
+\section[Usando o Chatbot]{Usando o Chatbot}
+
+Nosso modelo está pronto. Agora vamos finalmente conversar com nosso chatbot. Como nossos dados de treinamento eram muito limitados, só podemos conversar sobre alguns tópicos. O modelo pode ser treinado em um conjunto de dados maior para aumentar a generalização/conhecimento do Chatbot.
+
+\begin{lstlisting}[language=Python, caption=Chatbot]
+
+bot_name = "chatbotIA"
+print("Let's chat! (digite 'quit' para sair)")
+while True:
+    # frase = "Ola!"
+    sentence = input("Voce: ")
+    if sentence == "quit":
+        break
+
+    sentence = tokenize(sentence)
+    X = bag_of_words(sentence, all_words)
+    X = X.reshape(1, X.shape[0])
+    X = torch.from_numpy(X).to(device)
+
+    output = model(X)
+    _, predicted = torch.max(output, dim=1)
+
+    tag = tags[predicted.item()]
+
+    probs = torch.softmax(output, dim=1)
+    prob = probs[0][predicted.item()]
+    if prob.item() > 0.75:
+        for intent in intents['intents']:
+            if tag == intent["tag"]:
+                print(f"{bot_name}: {random.choice(intent['responses'])}")
+    else:
+        print(f"{bot_name}: Eu nao entendi...")
+
+
+\end{lstlisting}
+
+Nosso Modelo foi treinado com pouquíssimos exemplos, então não entende tudo o que passamos para ele.

@@ -11,3 +11,7 @@
 \contentsline {lstlisting}{\numberline {3.11}Dataset}{38}{lstlisting.3.11}%
 \contentsline {lstlisting}{\numberline {3.12}Hiperparâmetros}{40}{lstlisting.3.12}%
 \contentsline {lstlisting}{\numberline {3.13}Perda e otimizador}{40}{lstlisting.3.13}%
+\contentsline {lstlisting}{\numberline {3.14}Treinando o Modelo}{40}{lstlisting.3.14}%
+\contentsline {lstlisting}{\numberline {3.15}Salvando o modelo treinado}{42}{lstlisting.3.15}%
+\contentsline {lstlisting}{\numberline {3.16}Carregando modelo salvo}{42}{lstlisting.3.16}%
+\contentsline {lstlisting}{\numberline {3.17}Chatbot}{42}{lstlisting.3.17}%
