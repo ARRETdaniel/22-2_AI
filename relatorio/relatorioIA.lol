@@ -7,3 +7,7 @@
 \contentsline {lstlisting}{\numberline {3.7}Python Loop nos dados}{31}{lstlisting.3.7}%
 \contentsline {lstlisting}{\numberline {3.8}Data Cleaning}{32}{lstlisting.3.8}%
 \contentsline {lstlisting}{\numberline {3.9}Training Data}{32}{lstlisting.3.9}%
+\contentsline {lstlisting}{\numberline {3.10}Modelo}{37}{lstlisting.3.10}%
+\contentsline {lstlisting}{\numberline {3.11}Dataset}{38}{lstlisting.3.11}%
+\contentsline {lstlisting}{\numberline {3.12}Hiperparâmetros}{40}{lstlisting.3.12}%
+\contentsline {lstlisting}{\numberline {3.13}Perda e otimizador}{40}{lstlisting.3.13}%
