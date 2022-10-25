@@ -31,8 +31,10 @@
 \documentclass[
 	% -- opções da classe memoir --
 	12pt,				% tamanho da fonte
-	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
-	twoside,			% para impressão em verso e anverso. Oposto a oneside
+	%openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	openany,
+	%oneside, % With twoside layout (default for class book) chapters start at odd numbered pages and sometimes LaTeX needs to insert a page to ensure this.
+	%twoside,			% para impressão em verso e anverso. Oposto a oneside
 	a4paper,			% tamanho do papel.
 	% -- opções da classe abntex2 --
 	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
@@ -72,6 +74,11 @@
 \usepackage{xcolor}
 \renewcommand\lstlistingname{Lista de código}
 \renewcommand\lstlistlistingname{Lista de trechos de código}
+
+% https://tex.stackexchange.com/questions/111580/removing-an-unwanted-page-between-two-chapters
+\let\cleardoublepage\clearpage % Unwanted one-page gap between two chapters can be eliminated using the syntax
+
+
 
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
