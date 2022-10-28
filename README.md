@@ -22,10 +22,11 @@ This repo currently contains the starter files.
 
 Clone repo and create a virtual environment
 ```
-$ git clone https://github.com/ARRETdaniel/22-2_AI.git
-$ cd chatbot-deployment
+ git clone https://github.com/ARRETdaniel/22-2_AI.git
+ cd chatbot-deployment
 
-$ python3 -m venv venv
+*create a virtual environment on Anaconda
+ python3 -m venv venv
 ou
 conda activate pytorch MORE INFO: https://cran.r-project.org/web/packages/rTorch/vignettes/installation.html
 $ . venv/bin/activate
