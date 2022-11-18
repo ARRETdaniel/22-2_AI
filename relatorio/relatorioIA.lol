@@ -13,5 +13,6 @@
 \contentsline {lstlisting}{\numberline {3.13}Perda e otimizador}{28}{lstlisting.3.13}%
 \contentsline {lstlisting}{\numberline {3.14}Treinando o Modelo}{29}{lstlisting.3.14}%
 \contentsline {lstlisting}{\numberline {3.15}Salvando o modelo treinado}{30}{lstlisting.3.15}%
-\contentsline {lstlisting}{\numberline {3.16}Carregando modelo salvo}{30}{lstlisting.3.16}%
+\contentsline {lstlisting}{\numberline {3.16}Carregando modelo salvo}{31}{lstlisting.3.16}%
 \contentsline {lstlisting}{\numberline {3.17}Chatbot}{31}{lstlisting.3.17}%
+\contentsline {lstlisting}{\numberline {3.18}Dados de treino (completo)}{32}{lstlisting.3.18}%

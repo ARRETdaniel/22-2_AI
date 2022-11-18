@@ -8,7 +8,7 @@ from nltk_utils import bag_of_words, tokenize
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-with open('pytorch-chatbot/chatbot-deployment/intents.json', 'r') as json_data:
+with open('intents.json', 'r') as json_data:
     intents = json.load(json_data)
 
 FILE = "data.pth"
@@ -45,14 +45,14 @@ def get_response(msg):
             if tag == intent["tag"]:
                 return random.choice(intent['responses'])
 
-    return "I do not understand..."
+    return "Não entendi! Poderia ser mais específico..."
 
 
 if __name__ == "__main__":
-    print("Let's chat! (type 'quit' to exit)")
+    print("Vamos conversar! (digite 'quit' para sair)")
     while True:
         # sentence = "do you use credit cards?"
-        sentence = input("You: ")
+        sentence = input("Voce: ")
         if sentence == "quit":
             break
 

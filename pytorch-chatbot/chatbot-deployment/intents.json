@@ -28,7 +28,7 @@
     },
     {
       "tag": "obrigado",
-      "patterns": ["Obrigado", "Obrigado", "Isso e útil", "Muito obrigado!"],
+      "patterns": ["Obrigado", "Obrigado", "Isso e util", "Muito obrigado!"],
       "responses": ["Feliz em ajudar!", "A qualquer momento!", "E um prazer"]
     },
     {

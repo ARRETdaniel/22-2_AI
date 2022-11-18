@@ -549,6 +549,18 @@ data = {
    \end{center}
 \end{figure}
 
+\textit{Define: Loss (Perda)} A perda é a penalidade para uma previsão ruim. Ou seja, a perda é um número que indica quão ruim foi a previsão do modelo em um único exemplo. Se a previsão do modelo for perfeita, a perda é zero; caso contrário, a perda é maior\footnote{\url{https://developers.google.com/machine-learning/crash-course/descending-into-ml/training-and-loss}}.
+
+\begin{figure}[H]
+   \begin{center}
+      \includegraphics[width=13cm]{img/Loss.png}
+      \caption{Loss} \label{loss}
+      \medskip
+      \small
+      Alta perda no modelo esquerdo; baixa perda no modelo direita.
+   \end{center}
+\end{figure}
+
 
 \subsection[Salvando o modelo treinado]{Salvando o modelo treinado}
 
@@ -621,5 +633,108 @@ while True:
 
 
 \end{lstlisting}
+Usamos o conjunto de dados chamado intents.json que tem a estrutura completa mostrada
+no campo abaixo:
+\begin{lstlisting}[language=Python, caption= Dados de treino (completo)]
+   {
+      "intents": [
+        {
+          "tag": "saudacao",
+          "patterns": [
+            "Oi",
+            "Ei",
+            "Como voce esta",
+            "Tem alguem ai?",
+            "Ola",
+            "Bom dia"
+          ],
+          "responses": [
+            "Ei :-)",
+            "Ola, obrigado pela visita",
+            "Ola, o que posso fazer por voce?",
+            "Ola, como posso ajudar?"
+          ]
+        },
+        {
+          "tag": "adeus",
+          "patterns": ["Tchau", "Ate logo", "Adeus"],
+          "responses": [
+            "Ate mais tarde, obrigado pela visita",
+            "Tenha um bom dia",
+            "Tchau! Volte logo."
+          ]
+        },
+        {
+          "tag": "obrigado",
+          "patterns": ["Obrigado", "Obrigado", "Isso e util", "Muito obrigado!"],
+          "responses": ["Feliz em ajudar!", "A qualquer momento!", "E um prazer"]
+        },
+        {
+          "tag": "itens",
+          "patterns": [
+            "Quais itens voce tem?",
+            "Que tipos de itens existem?",
+            "O que tem a venda?",
+            "O que venda?",
+            "O que voce vende?"
+          ],
+          "responses": ["Vendemos cafe e cha", "Temos cafe e cha"]
+        },
+        {
+          "tag": "pagamentos",
+          "patterns": [
+            "Voces aceitam cartoes de credito?",
+            "Voce aceita MasterCard?",
+            "Formas de pagamento?",
+            "Aceita Pix?",
+            "Posso pagar com Paypal?",
+            "aceita apenas dinheiro?"
+          ],
+          "responses": [
+            "Aceitamos VISA, Mastercard, Paypal e Pix!",
+            "Aceitamos a maioria dos principais cartoes de credito, Paypal e Pix"
+          ]
+        },
+        {
+          "tag": "entrega",
+          "patterns": [
+            "Quanto tempo a entrega demora?",
+            "Quais sao as formas de entregas?",
+            "Quanto tempo demora o envio?",
+            "Como funciona as entregas?",
+            "Quando recebo minha entrega?",
+            "Voce faz entregas?",
+            "Voce faz entregas em casa"
+          ],
+          "responses": ["Entrega demora 2-4 dias", "Envio demora 2-4 dias"]
+        },
+        {
+          "tag": "engracado",
+          "patterns": [
+            "Conte-me uma piada!",
+            "Diga-me algo engracado!",
+            "Voce sabe uma piada?"
+          ],
+          "responses": [
+            "Por que enviar SPAM e algo justificavel? -  Porque os fins justificam os emails",
+            "Que tipo de computador esta bombando nas redes sociais? - O deskTOP",
+            "Qual o endereco do site do cavalo? - www.cavalo pontocom pontocom pontocom",
+            "Por que o mouse e muito mimado? - Porque tudo o que ele quer, o mouse pad"
+          ]
+        }
+      ]
+    }
+
+\end{lstlisting}
+
+\begin{figure}[H]
+   \begin{center}
+      \includegraphics[width=16cm]{img/chatting.png}
+      \caption{Conversando com o modelo} \label{running}
+      \medskip
+      \small
+      tentamos usar frases fora da nossa base de treino.
+   \end{center}
+\end{figure}
 
 Nosso Modelo foi treinado com pouquíssimos exemplos, então não entende tudo o que passamos para ele.
