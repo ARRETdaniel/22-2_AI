@@ -2,8 +2,10 @@ pai(adao,caim).
 pai(adao,abel).
 pai(adao,seth).
 pai(seth,enos).
+
 avo(A,C) :-
  pai(A,B), pai(B,C).
+
 avode(B) :-
   pai(Y,B),
   pai(Z,Y),
