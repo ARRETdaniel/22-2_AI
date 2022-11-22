@@ -36,20 +36,26 @@ descendente(X,Y) :-
 descendente(X,Y):-
   progenitor(X,A),
   descendente(A,Y).
-  
+
 avo(X,Y):- progenitor(X,A),
 progenitor(A,Y),
 sexo(X,masculino).
+
 mae(X,Y):- progenitor(X,Y),
 sexo(X,feminino).
+
 pai(X,Y):- progenitor(X,Y),
 sexo(X,masculino).
+
 tio(X,Y):- irmao(X,A),
 progenitor(A,Y).
+
 primo(X,Y):-irmao(A,B),
 progenitor(A,X),
 progenitor(B,Y),
 X\==Y.
+
+
 primo(X,Y):-irma(A,B),
 progenitor(A,X),
 progenitor(B,Y),
