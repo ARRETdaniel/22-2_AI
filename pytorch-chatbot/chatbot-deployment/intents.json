@@ -28,7 +28,7 @@
     },
     {
       "tag": "obrigado",
-      "patterns": ["Obrigado", "Obrigado", "Isso e util", "Muito obrigado!"],
+      "patterns": ["Obrigado", "Isso e util", "Muito obrigado!"],
       "responses": ["Feliz em ajudar!", "A qualquer momento!", "E um prazer"]
     },
     {
@@ -37,7 +37,7 @@
         "Quais itens voce tem?",
         "Que tipos de itens existem?",
         "O que tem a venda?",
-        "O que venda?",
+        "O que vende?",
         "O que voce vende?"
       ],
       "responses": ["Vendemos cafe e cha", "Temos cafe e cha"]
@@ -82,6 +82,33 @@
         "Que tipo de computador esta bombando nas redes sociais? - O deskTOP",
         "Qual o endereco do site do cavalo? - www.cavalo pontocom pontocom pontocom",
         "Por que o mouse e muito mimado? - Porque tudo o que ele quer, o mouse pad"
+      ]
+    },
+    {
+      "tag": "redirecionar",
+      "patterns": [
+        "Posso falar com uma pessoa?",
+        "Gostaria de conversar com um humano",
+        "Me coloque em contato com um funcionario"
+      ],
+      "responses": [
+        "Claro! Um dos atendentes entrara no chat em breve.",
+        "Um de nossos representantes entrara no chat em instantes, aguarde.",
+        "Desculpe, no momento nossos atendentes do chat se encontram indisponiveis. Podemos tentar resolver seu pedido pelo chatbot ou tente entrar em contato mais tarde."
+      ]
+    },
+    {
+      "tag": "sugestao",
+      "patterns": [
+        "Voce tem alguma sugestao de pedido?",
+        "Quais as melhores opcoes do dia?",
+        "Nao sei o que pedir.",
+        "O que voce me recomenda pedir?"
+      ],
+      "responses": [
+        "A bebida mais popular de nossa loja e o cafe.",
+        "Se esta precisando acordar um pouco, nos temos cafe!",
+        "Para aproveitar o momento enquanto relaxa um pouco temos um otimo cha!"
       ]
     }
   ]

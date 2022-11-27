@@ -35,7 +35,7 @@ Este Plano de Pesquisa também utilizará as seguintes metodologias:
          \end{itemize}
 \end{itemize}
 
-\chapter[Construindo um Chatbot com Pytorch]{Construindo um Chatbot com Pytorch}
+\chapter[Construindo um Chatbot]{Construindo um Chatbot}
 
 Já pensou em como Alexa, Siri ou assistente de voz do Google funcionavam? Neste capítulo daremos início à construção de um chatbot para interação com usuários de uma loja virtual.
 
@@ -76,18 +76,127 @@ Antes de continuar, abaixo encontra-se a lista de requisitos para o nosso projet
 
 \end{itemize}
 
+\section[PEAS do Chatbot]{PEAS do Chatbot}
+
+Antes de começarmos com o desenvolvimento em si. É de extrema importância definir o ambiente de tarefas para o nosso agente inteligente. Assim, com o uso do PEAS seremos capazes de representar e definir o modelo de Inteligência Artificial a ser desenvolvido. Desse modo, fazendo um
+paralelo entre os conhecimentos adquiridos durante a disciplina de Inteligência Artificial.
+O sistema PEAS nos fornecera a Medida de Desempenho em relação ao Ambiente, Atuadores e Sensores do respectivo agente que iremos trabalhar.
+
+A sigla PEAS significa: Medida de Desempenho, Ambiente, Atuador, Sensor \footnote{\url{https://www.geeksforgeeks.org/understanding-peas-in-artificial-intelligence/}}.
+\begin{itemize}
+
+   \item \textit{Medida de desempenho:} A medida de desempenho é a unidade para definir o sucesso de um agente. O desempenho varia com os agentes com base em seus diferentes preceitos.
+
+
+   \item \textit{Ambiente:} Ambiente é o entorno de um agente a cada instante. Ele continua mudando com o tempo se o agente estiver em movimento.
+
+         Existem 5 tipos principais de ambientes:
+         \begin{itemize}
+            \item Totalmente observável e parcialmente observável
+            \item Episódico e Sequencial
+            \item Estático e dinâmico
+            \item Discreto e Contínuo
+            \item Determinístico e estocástico
+
+         \end{itemize}
+
+
+
+   \item \textit{Atuador:} Um atuador é uma parte do agente que entrega a saída da ação ao ambiente.
+   \item \textit{Sensor:} Sensores são as partes receptivas de um agente que recebe a entrada para o agente.
+\end{itemize}
+
+\subsection[Modelo PEAS do Chatbot]{Modelo PEAS do Chatbot}
+
+Agora trazendo para o nosso projeto. Podemos fazer as seguintes definições:
+
+\begin{itemize}
+   \item \textit{Medida de desempenho:}
+         \begin{itemize}
+            \item Taxa de retenção (duração da conversa)
+            \item Usuários ativos (quantidades de usuários que utilizam o chat)
+            \item Custo por atendimento (redução de custo com call center)
+            \item Taxa de satisfação pós-atendimento
+            \item Número de erros
+
+         \end{itemize}
+   \item \textit{Ambiente:}
+         \begin{itemize}
+            \item Mensagens de um usuário através do chat
+            \item O site onde o chat foi alocado (info de produtos, call center, etc)
+
+         \end{itemize}
+   \item \textit{Atuadores:}
+         \begin{itemize}
+            \item Mensagens pelo chat
+            \item Sugestões
+            \item Encaminhamentos
+            \item Exibir produto/oferta
+
+         \end{itemize}
+   \item \textit{Sensores:}
+         \begin{itemize}
+            \item Mensagens de texto recebidas no Chat
+            \item Interpretador NLP
+
+         \end{itemize}
+
+\end{itemize}
+\subsection[Propriedades do Ambiente de Tarefas]{Propriedades do Ambiente de Tarefas}
+Após o desenvolvimento do PEAS, também é necessário especificar as propriedades do ambiente de tarefas em termos de seis principais fatores encontrados na tabela abaixo, ela também dirá se o ChatBot se encaixa ou não nessas especificações:
+
+\begin{figure}[H]
+   \begin{center}
+      \includegraphics[width=10cm]{img/propri.png}
+      \caption{Propriedades do Ambiente de Tarefas} \label{propri}
+   \end{center}
+\end{figure}
+
+\begin{itemize}
+   \item \textit{Completamente observável:} O ambiente é completamente observável, pois a única coisa que influencia as ações do ChatBot são as mensagens de texto recebidas do usuário.
+
+   \item \textit{Determinístico:} Ele não é determinístico porque as ações são determinadas pelas mensagens enviadas do usuário, e não há como prever que tipo de mensagem será enviada.
+
+   \item \textit{Episódico:} É completamente episódico, já que cada ação do ChatBot depende de uma mensagem enviada pelo usuário, sempre vindo a ação após a mensagem recebida.
+
+   \item \textit{Estático:} O ambiente muda de acordo com as mensagens enviadas do usuário, logo é dinâmico. O agente age de acordo com a demanda de mensagens.
+
+   \item \textit{Discreto:} É claramente discreto visto que há uma ação para cada percepção de mensagem recebida do usuário.
+
+   \item \textit{Agente único:} E podemos concluir que é único visto que há apenas um agente respondendo mensagens no chat, sem a influência de outros agentes.
+
+
+\end{itemize}
+
+Para concluir, podemos verificar os modelos mais simples de Agente Inteligente que temos e verificar em qual deles o ChatBot se encaixaria melhor. Os modelos conhecidos são: reativo simples, reativo baseado em modelo, baseados em objetivo e baseados na utilidade.
+Visto que o ChatBot funciona de acordo com uma base de conhecimento pré determinada e responde de acordo com a mensagem recebida e analisada do usuário, ele se encaixa melhor no modelo de agente reativo baseado em modelo.
+
+\begin{figure}[H]
+   \begin{center}
+      \includegraphics[width=10cm]{img/reativo.png}
+      \caption{PEAS Agente reativo baseado em modelo} \label{reativo}
+   \end{center}
+\end{figure}
+
+\begin{figure}[H]
+   \begin{center}
+      \includegraphics[width=12cm]{img/reativo2.png}
+      \caption{Função Agente reativo baseado em modelo} \label{reativo2}
+   \end{center}
+\end{figure}
+
+
 \section[Importando Bibliotecas Relevantes]{Importando Bibliotecas Relevantes}
 \begin{lstlisting}[language=Python, caption=Python Bibliotecas]
 
-   import numpy as np
-   import random
-   import json
-   import nltk
-   import torch
-   import torch.nn as nn
+         import numpy as np
+         import random
+         import json
+         import nltk
+         import torch
+         import torch.nn as nn
    from torch.utils.data import Dataset, DataLoader
 \end{lstlisting}
-
 
 \section[Criando funções personalizadas]{Criando funções personalizadas}
 Criaremos funções personalizadas para que seja fácil implementá-las posteriormente.
@@ -666,7 +775,7 @@ no campo abaixo:
         },
         {
           "tag": "obrigado",
-          "patterns": ["Obrigado", "Obrigado", "Isso e util", "Muito obrigado!"],
+          "patterns": ["Obrigado", "Isso e util", "Muito obrigado!"],
           "responses": ["Feliz em ajudar!", "A qualquer momento!", "E um prazer"]
         },
         {
@@ -675,7 +784,7 @@ no campo abaixo:
             "Quais itens voce tem?",
             "Que tipos de itens existem?",
             "O que tem a venda?",
-            "O que venda?",
+            "O que vende?",
             "O que voce vende?"
           ],
           "responses": ["Vendemos cafe e cha", "Temos cafe e cha"]
@@ -720,6 +829,33 @@ no campo abaixo:
             "Que tipo de computador esta bombando nas redes sociais? - O deskTOP",
             "Qual o endereco do site do cavalo? - www.cavalo pontocom pontocom pontocom",
             "Por que o mouse e muito mimado? - Porque tudo o que ele quer, o mouse pad"
+          ]
+        },
+        {
+          "tag": "redirecionar",
+          "patterns": [
+            "Posso falar com uma pessoa?",
+            "Gostaria de conversar com um humano",
+            "Me coloque em contato com um funcionario"
+          ],
+          "responses": [
+            "Claro! Um dos atendentes entrara no chat em breve.",
+            "Um de nossos representantes entrara no chat em instantes, aguarde.",
+            "Desculpe, no momento nossos atendentes do chat se encontram indisponiveis. Podemos tentar resolver seu pedido pelo chatbot ou tente entrar em contato mais tarde."
+          ]
+        },
+        {
+          "tag": "sugestao",
+          "patterns": [
+            "Voce tem alguma sugestao de pedido?",
+            "Quais as melhores opcoes do dia?",
+            "Nao sei o que pedir.",
+            "O que voce me recomenda pedir?"
+          ],
+          "responses": [
+            "A bebida mais popular de nossa loja e o cafe.",
+            "Se esta precisando acordar um pouco, nos temos cafe!",
+            "Para aproveitar o momento enquanto relaxa um pouco temos um otimo cha!"
           ]
         }
       ]

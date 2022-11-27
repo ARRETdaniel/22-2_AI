@@ -1,13 +1,16 @@
 \babel@toc {brazil}{}
 \babel@toc {brazil}{}
-\contentsline {figure}{\numberline {1}{\ignorespaces Bag of Words}}{18}{figure.3.1}%
-\contentsline {figure}{\numberline {2}{\ignorespaces ReLu}}{21}{figure.3.2}%
-\contentsline {figure}{\numberline {3}{\ignorespaces ReLu}}{21}{figure.3.3}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Feed Forward Neural Network}}{22}{figure.3.4}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Feed Forward Neural Network}}{22}{figure.3.5}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Logistic Sigmoid v/s ReLU}}{23}{figure.3.6}%
-\contentsline {figure}{\numberline {7}{\ignorespaces A representação matemática da função ReLU}}{24}{figure.3.7}%
-\contentsline {figure}{\numberline {8}{\ignorespaces A derivada da função ReLU}}{25}{figure.3.8}%
-\contentsline {figure}{\numberline {9}{\ignorespaces output}}{30}{figure.3.9}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Loss}}{30}{figure.3.10}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Conversando com o modelo}}{34}{figure.3.11}%
+\contentsline {figure}{\numberline {1}{\ignorespaces Propriedades do Ambiente de Tarefas}}{18}{figure.3.1}%
+\contentsline {figure}{\numberline {2}{\ignorespaces PEAS Agente reativo baseado em modelo}}{19}{figure.3.2}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Função Agente reativo baseado em modelo}}{19}{figure.3.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Bag of Words}}{21}{figure.3.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces ReLu}}{24}{figure.3.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces ReLu}}{25}{figure.3.6}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Feed Forward Neural Network}}{25}{figure.3.7}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Feed Forward Neural Network}}{26}{figure.3.8}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Logistic Sigmoid v/s ReLU}}{27}{figure.3.9}%
+\contentsline {figure}{\numberline {10}{\ignorespaces A representação matemática da função ReLU}}{28}{figure.3.10}%
+\contentsline {figure}{\numberline {11}{\ignorespaces A derivada da função ReLU}}{28}{figure.3.11}%
+\contentsline {figure}{\numberline {12}{\ignorespaces output}}{33}{figure.3.12}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Loss}}{34}{figure.3.13}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Conversando com o modelo}}{39}{figure.3.14}%
